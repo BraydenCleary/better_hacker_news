@@ -1,0 +1,15 @@
+<br>
+<%= @post.title %>
+
+<form action='/posts/<%= @post.id %>/comments' method='post'>
+
+  <textarea rows="4" cols="100" name='body' placeholder='Comment' required></textarea>
+  
+  <input type='submit' value='Submit'>
+</form>
+
+<ol>
+<% @comments.each do |comment| %>
+  <li><%= comment.body %></li>
+<% end %>
+</ol>
