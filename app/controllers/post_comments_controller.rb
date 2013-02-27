@@ -1,10 +1,11 @@
 post '/posts/:post_id/comments' do
+  content_type :json
   post = Post.find(params[:post_id])
   comment = Comment.new(:body => params[:body],
                         :post_id => params[:post_id],
                         :user_id => session[:user_id])
   if comment.save 
-    redirect to "/posts/#{post.id}"
+    comment.to_json 
   else
     render :posts_show
   end

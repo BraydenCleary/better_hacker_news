@@ -1,7 +1,7 @@
 <br>
 <%= @post.title %>
 
-<form action='/posts/<%= @post.id %>/comments' method='post'>
+<form action='/posts/<%= @post.id %>/comments' method='post' id="new-comment">
 
   <textarea rows="4" cols="100" name='body' placeholder='Comment' required></textarea>
   
