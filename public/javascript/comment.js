@@ -4,7 +4,8 @@ $(document).ready(function(){
     var url = this.action;
     var dataToSend = $(this).serialize();
     $.post(url, dataToSend, function(data){
-      $('ol').append("<li>" + data.comment.body + "</li>");     
+      $('ul').append("<li>" + data.comment.body + "</li>");     
+      $('#new-comment textarea').val('');
     });
   });
 });

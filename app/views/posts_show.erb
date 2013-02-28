@@ -8,8 +8,15 @@
   <input type='submit' value='Submit'>
 </form>
 
-<ol>
+<ul>
 <% @comments.each do |comment| %>
-  <li><%= comment.body %></li>
+   <li>
+    <div id="<%=comment.id%>">
+      <span class='comment-votes'><%= comment.comment_votes.length %>||</span>
+      <% unless comment.user_voted?(session[:user_id]) %>
+        <a class='comment-upvote-symbol' href="/posts/<%= comment.post.id%>/comments/<%= comment.id %>/upvote">^</a>||
+      <% end %>
+      <li><%= comment.body %></li>
+    </div>
 <% end %>
-</ol>
+</ul>

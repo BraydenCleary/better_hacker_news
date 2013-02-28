@@ -24,7 +24,7 @@ end
 
 get '/posts/:id' do
   @post = Post.find(params[:id])
-  @comments = @post.comments
+  @comments = @post.comments.sort_by { |comment| comment.comment_votes.length }.reverse
   erb :posts_show
 end
 
