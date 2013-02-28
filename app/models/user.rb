@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
   has_many  :comments
   has_many  :post_votes
   has_many  :comment_votes
+  validates :email, :uniqueness => true
+  
+
 
   def password
     @password ||= Password.new(password_hash)
