@@ -1,6 +1,14 @@
 <ul>
 <% @posts.each do |post| %>
-  <li><%= post.post_votes.length %>||<a href="/posts/<%= post.id%>/upvote">^</a>||<a href="<%= post.link %>"><%= post.title %></a> || <a href="/posts/<%= post.id%>"><%= post.comments.length %></a></li> 
+  <li>
+    <div id="<%=post.id%>">
+      <span class='votes'><%= post.post_votes.length %>||</span>
+      <% unless post.user_voted?(session[:user_id]) %>
+        <a class='upvote-symbol' href="/posts/<%= post.id%>/upvote">^</a>||
+      <% end %>
+      <a href="<%= post.link %>"><%= post.title %></a> || 
+      <a href="/posts/<%= post.id%>"><%= post.comments.length %></a></li> 
+    </div>
 <% end %>
 </ul>
   
