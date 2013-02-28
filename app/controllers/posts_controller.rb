@@ -13,7 +13,8 @@ end
 
 post '/posts' do
   post = Post.new(:title => params[:title],
-                  :link => params[:link] )
+                  :link => params[:link],
+                  :user_id => session[:user_id] )
   if post.save
     redirect to '/posts'
   else

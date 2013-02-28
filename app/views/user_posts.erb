@@ -1,0 +1,8 @@
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+      <a href="<%= post.link %>"><%= post.title %>aa</a> || 
+      <a href="/posts/<%= post.id%>"><%= post.comments.length %></a>
+    </li>  
+  <% end %>
+</ul>

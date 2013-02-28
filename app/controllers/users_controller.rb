@@ -16,4 +16,17 @@ post '/users' do
   end
 end
 
+get '/users/:id' do
+  @user = User.find(params[:id])
+  erb :users_show
+end
 
+get '/users/:id/posts' do
+  @posts = User.find(params[:id]).posts
+  erb :user_posts
+end
+
+get '/users/:id/comments' do
+  @comments = User.find(params[:id]).comments
+  erb :user_comments
+end

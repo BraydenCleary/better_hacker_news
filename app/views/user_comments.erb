@@ -1,0 +1,8 @@
+<ul>
+  <% @comments.each do |comment| %>
+    <li>
+      Post title: <a href="<%= comment.post.link %>"><%= comment.post.title %></a> || 
+      Comment: <%= comment.body %>
+    </li>  
+  <% end %>
+</ul>
